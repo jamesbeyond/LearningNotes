@@ -1,0 +1,110 @@
+####################################### 
+### Introduction  and Installations ###
+####################################### 
+git init
+<project>/.git
+
+git status
+git add
+git log
+git diff
+
+#########################
+###Git configurations ###
+#########################
+
+
+<project>/.git/config
+git config --global user.email "Qinghao.Shi@arm.com"
+git config --global user.name "Qinghao Shi"
+
+~/.gitconfig
+
+
+
+#################
+###Git Basics ###
+#################
+
+
+git add -all # moving everything to staging
+
+git commit -am "message"  # stage and checkin in one go
+
+git checkout -- <file> #discard changes in working directory
+git reset HEAD <file>  #Unstage a file
+.git/refs/heads/master
+
+
+git checkout abcd31231
+git rm <file>
+
+
+
+git reset --soft abcd31231
+git reset --mixed abcd31231
+git reset --hard abcd31231
+
+
+git clean -n  # test throw untracked files
+git clean -f  # throw untracked files
+
+
+project/.gitignore
+~/.gitignore_global
+git config --global core.excludefile ~/.gitignore_global
+
+git rm --cached <file> #ignore the file in cache (file already been tracked)
+
+
+
+.gitkeep
+
+git ls-tree HEAD
+git ls-tree master^^ <path>
+git ls-tree abcd31231~2 <path>
+
+git log --oneline
+git log -5
+git log --since/after=""
+git log --until/before=""
+git log --author="James"
+git log --grep="James"
+git log <sha-1>..<sha-1>
+git log <sha-1>.. <file>
+git log -p
+git log --stat --summary
+git log --graph
+git log --oneline --graph --all --decorate
+
+git show <sha-1>
+
+git diff --cached
+git diff <sha-1>
+git diff <sha-1>..<sha-1> <file>
+git diff -bw <sha-1>..HEAD
+
+
+
+
+
+### Working with remote repository ###
+git remote
+git remote add origin <url>
+git remote rm origin
+git branch -r  # show remote branches
+git branch -a  # show all branches (local and remote)
+<project>/.git/config
+
+git push
+git push -u origin master # -u make the branch tracking 
+????git branch --set-upstream non-tracking branch
+
+.git/refs/remotes/origin
+git clone <url>
+git clone <url> <project>
+
+
+git fetch origin
+
+git pull # git pull = git fetch + git merge
