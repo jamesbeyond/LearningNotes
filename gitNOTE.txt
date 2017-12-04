@@ -1,45 +1,81 @@
 ####################################### 
 ### Introduction  and Installations ###
 ####################################### 
+
+http://git-scm.com
+
+SCCS
+RCS
+CVS
+SVN
+
+git --version
+
+##########################
+### Git configurations ###
+##########################
+
+[System]
+/etc/gitconfig
+C:\Program Files\Git\gitconfig
+
+git config --system
+
+[User]
+~/.gitconfig
+%HOME%\.gitconfig
+
+git config --global user.email "Qinghao.Shi@arm.com"
+git config --global user.name "Qinghao Shi"
+git config --global core.editor "vim"
+
+[Project]
+<project>/.git/config
+
+git config
+
+##################
+### Git Basics ###
+##################
+git help
+
 git init
 <project>/.git
 
+git add .
+
 git status
-git add
+
+git commit -m "<msg>"
+
 git log
-git diff
 
-#########################
-###Git configurations ###
-#########################
+######################################
+### Git Consepts and changes files ###
+######################################
 
+HEAD
+.git/refs/heads/master
 
-<project>/.git/config
-git config --global user.email "Qinghao.Shi@arm.com"
-git config --global user.name "Qinghao Shi"
-
-~/.gitconfig
-
-
-
-#################
-###Git Basics ###
-#################
-
-
+git add <file>
 git add -all # moving everything to staging
+
+git diff
+git diff <file> # compare working directory with staging or repository
+git diff --staged # compare staging with repository
 
 git commit -am "message"  # stage and checkin in one go
 
-git checkout -- <file> #discard changes in working directory
-git reset HEAD <file>  #Unstage a file
-.git/refs/heads/master
-
-
-git checkout abcd31231
 git rm <file>
 
+git mv <file1> <file2>
 
+#####################################
+### Undo Changes and Ignore Files ###
+#####################################
+
+git checkout -- <file> #discard changes in working directory
+git reset HEAD <file>  #Unstage a file
 
 git reset --soft abcd31231
 git reset --mixed abcd31231
@@ -56,7 +92,11 @@ git config --global core.excludefile ~/.gitignore_global
 
 git rm --cached <file> #ignore the file in cache (file already been tracked)
 
+####################################
+### Navigating Trees and logging ###
+####################################
 
+git checkout <sha>
 
 .gitkeep
 
@@ -66,29 +106,38 @@ git ls-tree abcd31231~2 <path>
 
 git log --oneline
 git log -5
-git log --since/after=""
-git log --until/before=""
-git log --author="James"
-git log --grep="James"
-git log <sha-1>..<sha-1>
-git log <sha-1>.. <file>
+git log --since/after="<YYYY-MM-DD>"
+git log --until/before="<YYYY-MM-DD>""
+git log --author="<name>"
+git log --grep="<msg>"
+git log <sha>..<sha>
+git log <sha>.. <file>
 git log -p
 git log --stat --summary
 git log --graph
 git log --oneline --graph --all --decorate
 
-git show <sha-1>
+git show <sha>
 
 git diff --cached
-git diff <sha-1>
-git diff <sha-1>..<sha-1> <file>
-git diff -bw <sha-1>..HEAD
+git diff <sha>
+git diff <sha>..<sha> <file>
+git diff -bw <sha>..HEAD
+
+
+#################
+### Branching ###
+#################
+
+###############
+### Merging ###
+###############
 
 
 
-
-
+######################################
 ### Working with remote repository ###
+######################################
 git remote
 git remote add origin <url>
 git remote rm origin
@@ -108,3 +157,44 @@ git clone <url> <project>
 git fetch origin
 
 git pull # git pull = git fetch + git merge
+
+git push origin :<branch>  # remove remote branch (local will be kept)
+git push origin --delete <branch> # remove remote branch same as above
+
+
+####################
+### Git workflow ###
+####################
+[from user 1]
+git checkout master
+git fetch
+git merge origin/master
+git checkout -b <newbranch>
+git add <file>
+git commit -m "<msg>"
+git fetch
+git push -u origin <newbranch>
+
+[from user 2]
+git checkout master
+git fetch
+git merge origin/master
+git checkout -b <branch> origin/<branch>
+git log
+git show <sha>
+git commit -am "<msg>"
+git fetch
+git push
+
+[from user 1]
+git fetch
+git log -p <branch>..origin/<branch>
+git merge origin/<branch>
+git checkout master
+git fetch
+git merge origin/master
+git merge <branch>
+git push
+
+
+
