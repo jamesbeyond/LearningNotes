@@ -102,11 +102,9 @@ git rm --cached <file> #ignore the file in cache (file already been tracked)
 
 .gitkeep
 
-####################################
-### Navigating Trees and logging ###
-####################################
-
-git checkout <sha>
+###################################
+### Trees, show, logs and diffs ###
+###################################
 
 [tree-ish] SHA-1, HEAD pointer, branch ref, teg ref, ancestry
 HEAD^,<sha>^,master^,HEAD~1,HEAD~
@@ -130,16 +128,22 @@ git log --graph
 git log --oneline --graph --all --decorate
 
 git show <sha>
+git show --format=oneline <sha>
+git show <tree-ish>
 
+git diff # compare working directory with staging or repository
 git diff --cached
-git diff <sha>
-git diff <sha>..<sha> <file>
+git diff <sha> # compare working directory with the <sha> commit
+git diff <sha> <file> # compare working directory with the <sha> commit on a file
+git diff <sha>..<sha> <file> # compare between two <sha> commit on a file
+git diff --stat --summary <sha>..HEAD
 git diff -bw <sha>..HEAD
-
 
 #################
 ### Branching ###
 #################
+
+git checkout <sha>
 
 ###############
 ### Merging ###
