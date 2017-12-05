@@ -81,6 +81,7 @@ git reset HEAD <file>  #Unstage a file
 git commit --amend -m "<msg>" # amend the last commit plus current staged contents
 
 git checkout <sha> -- <file> # revert file to the state of the commit pointted by the SHA
+git checkout <sha>
 
 git revert <sha> # revert a commit with new commit
 git revert -n <sha> # revert a commit without new commit
@@ -143,7 +144,22 @@ git diff -bw <sha>..HEAD
 ### Branching ###
 #################
 
-git checkout <sha>
+git branch # list all the branch
+
+git branch <branch> # create a new branch
+git branch -b <branch> # create and switch to a new branch
+
+git checkout <branch> # switch to new branch (current working branch need to be clean)
+
+git diff master..<branch>
+git diff --color-wrods <branch1>..<branch2>^^
+
+git branch --merged # check the current branch contains which other branch commits 
+
+git branch --move <branch> <newbranch> # rename a branch
+
+git branch -d <branch> # delete a branch
+git branch -D <branch> # delete a commited branch
 
 ###############
 ### Merging ###
