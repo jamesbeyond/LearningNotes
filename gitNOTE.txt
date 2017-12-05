@@ -127,6 +127,7 @@ git log -p
 git log --stat --summary
 git log --graph
 git log --oneline --graph --all --decorate
+git log <branch>
 
 git show <sha>
 git show --format=oneline <sha>
@@ -169,8 +170,13 @@ git merge <sending_branch> # merge branch from receving branch
 git merge --no--ff <sending_branch>
 git merge --ff-only <sending_branch>
 
+git merge --abort
 
+git add # after resolve conflict
+git commit # after resolve conflict
 
+git mergetool
+git mergetool --tool=<tool>
 
 #############
 ### Stash ###
