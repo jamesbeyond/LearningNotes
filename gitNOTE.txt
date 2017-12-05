@@ -149,6 +149,17 @@ git checkout <sha>
 ### Merging ###
 ###############
 
+git merge <sending_branch> # merge branch from receving branch
+git merge --no--ff <sending_branch>
+git merge --ff-only <sending_branch>
+
+
+
+
+#############
+### Stash ###
+#############
+
 
 
 ######################################
