@@ -100,6 +100,10 @@ git checkout <sha>
 
 .gitkeep
 
+[tree-ish] SHA-1, HEAD pointer, branch ref, teg ref, ancestry
+HEAD^,<sha>^,master^,HEAD~1,HEAD~
+master^^, HEAD^^, <sha>~2
+
 git ls-tree HEAD
 git ls-tree master^^ <path>
 git ls-tree abcd31231~2 <path>
