@@ -74,23 +74,33 @@ git mv <file1> <file2>
 ### Undo Changes and Ignore Files ###
 #####################################
 
-git checkout -- <file> #discard changes in working directory
+git checkout -- <file> #discard changes in working directory (will keep staged files changes)
+
 git reset HEAD <file>  #Unstage a file
 
-git reset --soft abcd31231
-git reset --mixed abcd31231
-git reset --hard abcd31231
+git commit --amend -m "<msg>" # amend the last commit plus current staged contents
 
+git checkout <sha> -- <file> # revert file to the state of the commit pointted by the SHA
 
-git clean -n  # test throw untracked files
+git revert <sha> # revert a commit with new commit
+git revert -n <sha> # revert a commit without new commit
+
+git reset --soft <sha> # leave the files in staged 
+git reset --mixed <sha> # leave the files in working dir
+git reset --hard <sha> # reset back to a commit, and revert all the chnages back to this point
+
+git clean -n  # test for throw untracked files
 git clean -f  # throw untracked files
 
 
-project/.gitignore
+<project>/.gitignore
+
 ~/.gitignore_global
 git config --global core.excludefile ~/.gitignore_global
 
 git rm --cached <file> #ignore the file in cache (file already been tracked)
+
+.gitkeep
 
 ####################################
 ### Navigating Trees and logging ###
@@ -98,20 +108,18 @@ git rm --cached <file> #ignore the file in cache (file already been tracked)
 
 git checkout <sha>
 
-.gitkeep
-
 [tree-ish] SHA-1, HEAD pointer, branch ref, teg ref, ancestry
 HEAD^,<sha>^,master^,HEAD~1,HEAD~
 master^^, HEAD^^, <sha>~2
 
 git ls-tree HEAD
 git ls-tree master^^ <path>
-git ls-tree abcd31231~2 <path>
+git ls-tree <sha>~2 <path>
 
 git log --oneline
 git log -5
 git log --since/after="<YYYY-MM-DD>"
-git log --until/before="<YYYY-MM-DD>""
+git log --until/before="<YYYY-MM-DD>"
 git log --author="<name>"
 git log --grep="<msg>"
 git log <sha>..<sha>
