@@ -201,27 +201,42 @@ git stash clear # clean all stashes
 ######################################
 ### Working with remote repository ###
 ######################################
-git remote
-git remote add origin <url>
-git remote rm origin
-git branch -r  # show remote branches
-git branch -a  # show all branches (local and remote)
+
+git remote # show all the known remote
+git remote -v # show details for the remote 
+
+git remote add origin <url> # adding url for the git remote as origin
 <project>/.git/config
 
-git push
-git push -u origin master # -u make the branch tracking 
-????git branch --set-upstream non-tracking branch
+git remote rm origin # remove 
 
-.git/refs/remotes/origin
+git push  # once tracking is setup
+git push -u origin <branch> # push branch onto origin, -u make the branch tracking 
+<project>.git/refs/remotes/origin/<branch> # the origin branch refs
+
+git config branch.<branch>.remote origin # set a branch tracking with remote by change the config file
+git config branch.<branch>.merge refs/heads/<branch>
+
+git branch --set-upstream <branch> origin/<branch> # # set a branch tracking with remote by branch command (--set-upstream = -u)
+
+git branch -r  # show remote branches
+git branch -a  # show all branches (local and remote)
+
 git clone <url>
 git clone <url> <project>
 
+git diff origin/<branch>..<branch> # diff between branch and origin/branch
 
+git fetch
 git fetch origin
 
 git pull # git pull = git fetch + git merge
 
+git branch <branch> origin/<branch> # create a local branch from remote
+git checkout -b <branch> origin/<branch> # create a local branch from remote and switch to that branch
+
 git push origin :<branch>  # remove remote branch (local will be kept)
+git push origin <localbranch>:<remotebranch>
 git push origin --delete <branch> # remove remote branch same as above
 
 
