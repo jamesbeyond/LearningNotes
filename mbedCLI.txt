@@ -1,0 +1,38 @@
+################
+### mbed CLI ###
+################
+
+pip install mbed-cli
+
+mbed --version
+
+pip install mbed-cli --upgrade
+
+##############
+### Import ###
+##############
+
+mbed import <url> # import an examples
+
+##############
+### Update ###
+##############
+
+mbed update <branch/tag> #update example to a different branch/tag
+mbed update mbed-5.7-oob 
+
+###############
+### Compile ###
+###############
+
+mbed compile -m <target> -t <toolchain>
+mbed compile -m K64F -t ARM
+
+##############
+### Export ###
+##############
+
+mbed export -m <target> -i <IDE/Toolchain>
+mbed export -m K64F -i uvision5
+
+
