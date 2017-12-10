@@ -156,6 +156,7 @@ git diff master..<branch>
 git diff --color-wrods <branch1>..<branch2>^^
 
 git branch --merged # check the current branch contains which other branch commits 
+git branch --no-merge # check that if any branch not merge in current branch 
 
 git branch --move <branch> <newbranch> # rename a branch
 
