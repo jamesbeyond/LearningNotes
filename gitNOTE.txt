@@ -148,7 +148,7 @@ git diff -bw <sha>..HEAD
 git branch # list all the branch
 
 git branch <branch> # create a new branch
-git branch -b <branch> # create and switch to a new branch
+git checkout -b <branch> # create and switch to a new branch
 
 git checkout <branch> # switch to new branch (current working branch need to be clean)
 
