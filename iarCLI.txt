@@ -1,0 +1,8 @@
+######################
+### IAR System CLI ###
+######################
+
+iarbuild mbed-os-example-blinky.ewp -build *
+
+iarbuild mbed-os-example-blinky.ewp -build <example-name>
+

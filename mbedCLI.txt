@@ -12,14 +12,14 @@ pip install mbed-cli --upgrade
 ### Import ###
 ##############
 
-mbed import <url> # import an examples
+mbed import <example> # import an examples
 
 ##############
 ### Update ###
 ##############
 
 mbed update <branch/tag> #update example to a different branch/tag
-mbed update mbed-5.7-oob 
+mbed update mbed-os-5.7.0-oob 
 
 ###############
 ### Compile ###
