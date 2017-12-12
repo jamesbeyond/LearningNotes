@@ -148,7 +148,7 @@ git diff -bw <sha>..HEAD
 git branch # list all the branch
 
 git branch <branch> # create a new branch
-git branch -b <branch> # create and switch to a new branch
+git checkout -b <branch> # create and switch to a new branch
 
 git checkout <branch> # switch to new branch (current working branch need to be clean)
 
@@ -156,6 +156,7 @@ git diff master..<branch>
 git diff --color-wrods <branch1>..<branch2>^^
 
 git branch --merged # check the current branch contains which other branch commits 
+git branch --no-merge # check that if any branch not merge in current branch 
 
 git branch --move <branch> <newbranch> # rename a branch
 
