@@ -187,6 +187,8 @@ git merge --abort
 git add # after resolve conflict
 git commit # after resolve conflict
 
+git checkout --theirs -- <file> # in a merge conflict of binary files, this checkout the binary files from the other branch(rather the current branch)
+
 git rebase <commit> # Moves the current branch to the specified commit. The practical result of this is that it creates a linear commit history from multiple branches. 
 # Commits within a branch are moved to the end of the current branch. This is typically followed up by a merge which moves the current commit forward to the last added commit.
 # The other way to say is, this change a 3 way merge to a fastforward marge
