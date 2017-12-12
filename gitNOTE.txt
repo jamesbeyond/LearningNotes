@@ -42,9 +42,12 @@ git help
 git init
 <project>/.git
 
-git add .
+git add <file> 
 
 git status
+git status -s (--short) # Displays the output in short format
+git status -u (--untracked) # Displays untracked files
+
 
 git commit -m "<msg>"
 
@@ -57,13 +60,16 @@ git log
 HEAD
 .git/refs/heads/master
 
-git add <file>
-git add -all # moving everything to staging
+git add . # Adds all untracked and modified files, even those in subdirectories
+git add -all # same as add .
+git add -f <filename> #Force, will add the file specified even if it's contained in a .gitignore file
+git add -u # adding all tracked files in the entire working tree are updated
 
 git diff
 git diff <file> # compare working directory with staging or repository
 git diff --staged # compare staging with repository
 
+git commit -a # Stage and commit all modified and removed files. Does not affect untracked files.
 git commit -am "message"  # stage and checkin in one go
 
 git rm <file>
@@ -92,7 +98,6 @@ git reset --hard <sha> # reset back to a commit, and revert all the chnages back
 
 git clean -n  # test for throw untracked files
 git clean -f  # throw untracked files
-
 
 <project>/.gitignore
 
@@ -128,6 +133,10 @@ git log --stat --summary
 git log --graph
 git log --oneline --graph --all --decorate
 git log <branch>
+
+git log --no-merges # List commit history but ignore merges.
+git log --pretty=oneline # List commit history using short hash identifier and a single line message.
+git log <file> # See all commits that affect the specified file.
 
 git show <sha>
 git show --format=oneline <sha>
@@ -171,10 +180,16 @@ git merge <sending_branch> # merge branch from receving branch
 git merge --no--ff <sending_branch>
 git merge --ff-only <sending_branch>
 
+git merge --no-commit <branchname> # Merges the specified branches but does not commit the result. This allows you to inspect the merge before you finalize it by committing
+
 git merge --abort
 
 git add # after resolve conflict
 git commit # after resolve conflict
+
+git rebase <commit> # Moves the current branch to the specified commit. The practical result of this is that it creates a linear commit history from multiple branches. 
+# Commits within a branch are moved to the end of the current branch. This is typically followed up by a merge which moves the current commit forward to the last added commit.
+# The other way to say is, this change a 3 way merge to a fastforward marge
 
 git mergetool
 git mergetool --tool=<tool>
@@ -209,7 +224,7 @@ git remote -v # show details for the remote
 git remote add origin <url> # adding url for the git remote as origin
 <project>/.git/config
 
-git remote rm origin # remove 
+git remote -rm origin # remove 
 
 git push  # once tracking is setup
 git push -u origin <branch> # push branch onto origin, -u make the branch tracking 
@@ -225,6 +240,9 @@ git branch -a  # show all branches (local and remote)
 
 git clone <url>
 git clone <url> <project>
+git clone -o <url> <name> # Clones a remote repo and changes the named reference from “origin” to the one you specify.
+git clone -b [url]  <branch> # Clones the repo and checks out the named branch locally.
+
 
 git diff origin/<branch>..<branch> # diff between branch and origin/branch
 
@@ -232,6 +250,7 @@ git fetch
 git fetch origin
 
 git pull # git pull = git fetch + git merge
+git pull  origin
 
 git branch <branch> origin/<branch> # create a local branch from remote
 git checkout -b <branch> origin/<branch> # create a local branch from remote and switch to that branch
