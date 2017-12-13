@@ -45,8 +45,8 @@ git init
 git add <file> 
 
 git status
-git status -s (--short) # Displays the output in short format
-git status -u (--untracked) # Displays untracked files
+git status -s(--short) # Displays the output in short format
+git status -u(--untracked) # Displays untracked files
 
 
 git commit -m "<msg>"
@@ -63,7 +63,7 @@ HEAD
 git add . # Adds all untracked and modified files, even those in subdirectories
 git add -all # same as add .
 git add -f <filename> #Force, will add the file specified even if it's contained in a .gitignore file
-git add -u # adding all tracked files in the entire working tree are updated
+git add -u(--update) # adding all tracked files in the entire working tree are updated
 
 git diff
 git diff <file> # compare working directory with staging or repository
@@ -308,6 +308,8 @@ git config --global alias.br "branch"
 git config --global alias.df "diff"
 git config --global alias.df "diff --staged"
 git config --global alias.logg "log --oneline --graph --all --decorate"
+git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+git config --global alias.lgd "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 [SSH keys for remote login]
 https://help.github.com/articles/set-up-git#password-caching
