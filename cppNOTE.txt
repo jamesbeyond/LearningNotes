@@ -1,0 +1,83 @@
+/*
+Q: What is preprocessor
+Q: Dose main function have to be "int main()", can it be "void main()"
+Q: Difference between <stdio> <cstdio> <iostream>
+Q: What namespace for
+Q; ++i and i++
+*/
+
+/////////////////
+// Identifiers //
+/////////////////
+
+Identifiers includes [A-Z][a-z][0-9][_]
+Not starts with number
+Only first 63 letters are checked for uniqueness
+Only first 31 letters are checked for external identifiers
+private identifiers starts with _
+system level private identifiers start with __
+
+//////////////
+// Pointers //
+//////////////
+
+int x = 1;
+int y = x;
+int *ip; // pointer to integer (pointers are defined by the data type it pointed to)
+ip = &x;
+y = *ip; // When the pointer started with *, it means the data it pointed to, rather than the address it pointed to
+
+////////////////
+// References //
+////////////////
+
+int x = 7;
+int *ip = &x; // Note: in 2 line statements, ip=&x 
+int &y = x; // y is a reference of x
+printf ("y is %d\n", y); // when use y, just use y rather than *y or &y
+
+////////////////////////
+// Arrays and Strings //
+////////////////////////
+
+int ia[5];
+ia[0] = 1;
+*ia = 1; // same as ia[0] = 1; due to array if form of pointer
+int *ip = ia; // in this we don't do ip = &ia, due to ia[] is from of pointer, and ip is the size of each element in the array
+*ip = 2; //assign the first element of the array
+++ip; // move to the second element
+*ip = 3; // assign the second element of the array
+*(++ip) = 4; // increase the pointer and use it at same time
+
+int ia[5] = {1,2,3,4,5}; // this is defined in C++11
+
+char s[] = {'s','t','r','i','n','g',0}; // string end with 0 
+char s[] = "string"; // same as above
+
+///////////////
+// Condition //
+///////////////
+
+x > y ? x : y; 
+
+
+
+/////////////
+// Looping //
+/////////////
+
+char s[] = "string";
+for (int i=0; s[i]; ++i)
+{
+	printf ("char is %c\n", s[i]);
+}
+
+for (char *cp = s; *cp; ++cp)
+{
+	printf ("char is %c\n", *cp);
+}
+
+for (char c : s)
+{
+	printf ("char is %c\n", c); // this will loop to 0 (end of string)
+}
