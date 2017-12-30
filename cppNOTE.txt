@@ -1,7 +1,7 @@
 /*
 Q: What is preprocessor
 Q: Dose main function have to be "int main()", can it be "void main()"
-Q: Difference between <stdio> <cstdio> <iostream>
+Q: Difference between <stdio.h> <cstdio> <iostream>
 Q: What namespace for
 Q; ++i and i++
 */
@@ -77,7 +77,148 @@ for (char *cp = s; *cp; ++cp)
 	printf ("char is %c\n", *cp);
 }
 
-for (char c : s)
+for (char c : s) // range based loop, only available after c++11
 {
-	printf ("char is %c\n", c); // this will loop to 0 (end of string)
+	printf ("char is %c\n", c); // this will loop to 0 (blank end of string)
 }
+
+int a[] = {1,2,3,4,5};
+for ( int i : a ) // this will loop 5 times
+{
+	printf("element is %d\n", i); 
+}
+
+////////////
+// Stdout //
+////////////
+#include <cstdio>
+puts("hello world!");
+
+#include <iostream>
+cout << "hello world!" << 2+3 << "other string" <<endl;
+
+///////////////
+// functions //
+///////////////
+
+// function signature is used to identify a function.
+// In C++ it's possible to have different functions with the same name. 
+// The compiler selects which function to call based on the entire function's signature, not just the function name.
+// This called function overload
+// This is one significant area where C++ differs from C. In C, a function is distinguished only by its name
+
+// Call by value
+int a  = 1;
+f(a);
+
+void f (int a)
+{
+	++a;
+}
+
+// Call by reference will not generated a copy of the passing argument onto stack , which will save memory and time(specially passing a large object etc. a struct )
+// Call by reference
+int a  = 1;
+f(&a);
+
+void f (int* p)
+{
+	++(*p);
+}
+
+// Another way of call by reference
+int a  = 1;
+f(a);
+
+void f (int & p)
+{
+	++p;
+}
+
+// call by reference read only
+int a  = 1;
+f(a);
+
+void f ( const int & p)
+{
+	++p; // this will throw an error
+}
+
+// call by reference passing string
+#include <string>
+string s  = "this is a string";
+f(s);
+
+void f ( const string & fs)
+{
+	printf("value is %s\n", fs.c_str());
+}
+
+#include <string>
+string s  = "this is a string";
+f(&s);
+
+void f ( const string * fs)
+{
+	printf("value is %s\n", fs->c_str());
+}
+
+// return by reference
+#include <string>
+const string & func()
+{
+	static string s = "this is s long string"; // to use static, because In order to return a reference, it has to be a reference to something in static storage space.
+}
+
+printf("return value is %s\n", func().c_str());
+
+// function pointer
+void func ()
+{
+	puts("this is a func()\n");
+}
+
+void (*fp)() = func // also can use &func
+fp();  // can be (*fp)()
+// an use case for function pointer is jump table for function calls
+
+//operator overload !!!
+int operator + (const A & lhs, const A & rhs)
+{
+	return lhs.value() + rhs.value();
+}
+
+//variable numbers of arguments!!!  variadic functions
+#include <cstdarg>
+double average (const int count, ...)
+{ 
+	va_list ap;
+	int i;
+	double total = 0.0;
+	va_start(ap, count) //macro
+	for (i = 0; i<count; ++i)
+	{
+		total += va_arg(ap,double);
+	}
+	va_end(ap)
+	return total/count;
+}
+
+// For every recursive function call, memory is allocated for the parameters, for any local variables,
+// for the return value and for other overhead that you might have in your function, 
+// and all of this is allocated on the stack which means that it's very possible to overrun your stack and create a security vulnerability.
+// A loop is often a more efficient way to do something like this
+
+//////////////////////////
+// C++ Standard Library //
+//////////////////////////
+
+
+/////////
+// STL //
+/////////
+
+#include <string>
+//STL string is different from C string, which is not terminated by 0 
+
+
