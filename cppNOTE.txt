@@ -209,6 +209,52 @@ double average (const int count, ...)
 // and all of this is allocated on the stack which means that it's very possible to overrun your stack and create a security vulnerability.
 // A loop is often a more efficient way to do something like this
 
+
+//////////////////
+// Preprocessor //
+//////////////////
+
+#include <file>
+
+#define ONE 1
+
+#define MAX(a,b) ( a > b ? a : b ) //macro
+
+#ifndef CONDITIONAL_H_
+#define CONDITIONAL_H_
+#define NUMBER 2
+#define CONSTANT 73
+#endif /*CONDITIONAL_H_*/
+
+#pragma long_calls
+#pragma make Label
+#pragma align 32
+
+//including files
+#include <cstdio>
+#include "preproc.h"
+
+// Conditional 
+#if
+#ifdef
+#ifndef
+#else
+#elif
+#endif
+
+#if defined(MACRO)
+#if !defined(MACRO)
+
+//backslash skip new line mark
+
+#pragma once
+
+
+/////////////////////////
+// Classes and Objects //
+/////////////////////////
+
+
 //////////////////////////
 // C++ Standard Library //
 //////////////////////////
