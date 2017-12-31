@@ -254,6 +254,74 @@ double average (const int count, ...)
 // Classes and Objects //
 /////////////////////////
 
+//class member defaults to private
+//date members
+
+struct A {
+	int ia;		// struct data member default to public
+	int ib;
+}
+
+int main (int argc, char ** argv)
+{
+	A a = {1,2,3};
+	A *pa = &a;
+	printf ("ia is %d, ib is %d", a.ia, pa->ib); // .(element selection operator) is used for access data member by object name, ->(pointer selection operator) is used by a pointer
+}
+
+
+// function members
+//const safe ???
+
+
+//constructor
+//initializer list ???
+class circle {
+	int _x;
+	int _y;
+	int _r;
+public:
+	circle (int x, int y, int r) : _x(x),_y(y),_r(r){};
+};
+
+
+//default function argument value
+class Rational {
+	int _n;
+	int _d;
+public:
+	Rational (int numerator =0, int denominator = 1) : _n(numerator),_d(denominator){};
+};
+
+//copy constructor
+
+// put default constructor in private, that force to use the formal constructor
+// implicit and explicit conversion ???
+
+
+
+//destructor 
+
+//This pointer????
+
+////////////////
+// NameSpaces //
+////////////////
+
+namespace bwstring {
+	
+}; //namespace bwstring
+
+using namespace bwstring;
+using bwsting::string; //use part of the namespace 
+
+
+///////////////////////
+// Operator overload //
+///////////////////////
+
+?????
+
 
 //////////////////////////
 // C++ Standard Library //
