@@ -4,6 +4,8 @@ Q: Dose main function have to be "int main()", can it be "void main()"
 Q: Difference between <stdio.h> <cstdio> <iostream>
 Q: What namespace for
 Q; ++i and i++
+Q: char a = 1 and char a = "1"
+Q: malloc 
 */
 
 /////////////////
@@ -418,7 +420,7 @@ extern
 
 //class type, based on structures, but with default to private data members and function members 
 
-//union type is set of overlapping object types
+//union type is set of overlapping object types ???
 
 //pointer is a reference to an object or given type
 
@@ -432,6 +434,66 @@ int &ir = i;
     And the reference cannot be null. 
     It cannot be uninitialized. 
     And it cannot be changed to refer to another variable. */
+
+//bit field ???
+
+//Enumerations ????
+
+//typedef ??
+
+//void type
+void func (void){
+	printf("this is void func\n");
+	return;
+}
+
+//auto type ??
+
+//null pointer ??
+nullptr
+	
+	
+///////////////
+// Operators //
+///////////////
+
+// compound operators
+x = X + y;
+x += y; // this is more efficient way they x = x + y, by not creating new temp object ,and not copying object
+
+// increment/decrement operators
+int x = 42;
+print ("value is %d\n", x++); // pre-increment, print 42, return x first, then++
+print ("value is %d\n", ++x); // post-increment, print 43, ++ first, then return x, more efficient by not creating new temp object ,and not copying object
+
+//compare operators
+==
+!=
+>
+<
+>=
+<=
+
+//logical operators
+&& // logical AND
+|| // logical OR
+! // logical NOT
+
+//bitwise operators
+~ // bitwise NOT
+& // bitwise AND
+| // bitwise OR
+<< // left shift
+>> //right shift
+
+//ternary conditional operator
+condition == true ? "yes" : "no"
+
+//sizeof operator
+
+//typeid operator ??
+
+//operators precedence
 
 //////////////////////////
 // C++ Standard Library //

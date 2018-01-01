@@ -1,0 +1,81 @@
++-------------------------------------------------------------------------------------------+
+|                                 C/C++ Operator Precedence                                 |
++-------------------------------------------------------------------------------------------+
+| Precedence | Operators        | Description                               | Associativity |
++------------+------------------+-------------------------------------------+---------------+
+| 1          | ::               | Scope resolution (C++ only)               | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 2          | ++               | Suffix increment                          | left -> right |
+|            | --               | Suffix decrement                          |               |
+|            | ()               | Function call                             |               |
+|            | []               | Array subscript                           |               |
+|            | .                | Element selection                         |               |
+|            | ->               | Element selection by pointer              |               |
+|            | typeid()         | Runtime type information (C++ only)       |               |
+|            | const_cast       | Type cast (C++ only)                      |               |
+|            | dynamic_cast     | "                                         |               |
+|            | reinterpret_cast | "                                         |               |
+|            | static_cast      | "                                         |               |
++------------+------------------+-------------------------------------------+---------------+
+| 3          | ++               | Prefix increment                          | left <- right |
+|            | --               | Prefix decrement                          |               |
+|            | +                | Unary plus                                |               |
+|            | -                | Unary minus                               |               |
+|            | !                | Logical NOT                               |               |
+|            | ~                | Bitwise NOT                               |               |
+|            | (type)           | Type cast                                 |               |
+|            | *                | Indirection (pointer dereference)         |               |
+|            | &                | Address-of                                |               |
+|            | sizeof           | Size-of                                   |               |
+|            | new, new[]       | Dynamic memory allocation (C++ only)      |               |
+|            | delete, delete[] | Dynamic memory deallocation (C++ only)    |               |
++------------+------------------+-------------------------------------------+---------------+
+| 4          | .*               | Pointer to member (C++ only)              | left -> right |
+|            | ->*              | Pointer to dereferenced member (C++ only) |               |
++------------+------------------+-------------------------------------------+---------------+
+| 5          | *                | Multiplication                            | left -> right |
+|            | /                | Division                                  |               |
+|            | %                | Integer modulus (remainder)               |               |
++------------+------------------+-------------------------------------------+---------------+
+| 6          | +                | Addition                                  | left -> right |
+|            | -                | Subtraction                               |               |
++------------+------------------+-------------------------------------------+---------------+
+| 7          | <<               | Bitwise shift left                        | left -> right |
+|            | >>               | Bitwise shift right                       |               |
++------------+------------------+-------------------------------------------+---------------+
+| 8          | <                | Less than                                 | left -> right |
+|            | <=               | Less than or equal to                     |               |
+|            | >                | Greater than                              |               |
+|            | >=               | Greater than or equal to                  |               |
++------------+------------------+-------------------------------------------+---------------+
+| 9          | ==               | Equal to                                  | left -> right |
+|            | !=               | Not equal to                              |               |
++------------+------------------+-------------------------------------------+---------------+
+| 10         | &                | Bitwise AND                               | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 11         | ^                | Bitwise XOR (exclusive or)                | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 12         | |                | Bitwise OR (inclusive or)                 | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 13         | &&               | Logical AND                               | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 14         | ||               | Logical OR                                | left -> right |
++------------+------------------+-------------------------------------------+---------------+
+| 15         | ?:               | Ternary conditional                       | left <- right |
++------------+------------------+-------------------------------------------+---------------+
+| 16         | =                | Assignment                                | left <- right |
+|            | +=               | Assignment by sum                         |               |
+|            | -=               | Assignment by difference                  |               |
+|            | *=               | Assignment by product                     |               |
+|            | /=               | Assignment by quotient                    |               |
+|            | %=               | Assignment by remainder                   |               |
+|            | <<=              | Assignment by bitwise left shift          |               |
+|            | >>=              | Assignment by bitwise right shift         |               |
+|            | &=               | Assignment by bitwise AND                 |               |
+|            | ^=               | Assignment by bitwise XOR                 |               |
+|            | |=               | Assignment by bitwise OR                  |               |
++------------+------------------+-------------------------------------------+---------------+
+| 17         | throw            | Throw an exception                        | left <- right |
++------------+------------------+-------------------------------------------+---------------+
+| 18         | ,                | Sequence                                  | left -> right |
++------------+------------------+-------------------------------------------+---------------+
