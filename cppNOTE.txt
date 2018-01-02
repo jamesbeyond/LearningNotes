@@ -295,6 +295,9 @@ public:
 	Rational (int numerator =0, int denominator = 1) : _n(numerator),_d(denominator){};
 };
 
+
+// if the default constructor is private, that will prevent anyone create a object from this base class,
+// and if a copy constructor is in protected, so derived class can overloading it with a public one  
 //copy constructor
 
 // put default constructor in private, that force to use the formal constructor
@@ -316,6 +319,34 @@ delete ap
 //new and delete can be used as array of pointers
 A * ap = new A[3];
 delete[] ap
+
+////////////////////////
+// Object inheritance //
+////////////////////////
+
+//base class
+public // access to anyone
+protected // access by base class and derived class only
+private // // access by base class only
+// if the default constructor is private, that will prevent anyone create a object from this base class,
+// and if a copy constructor is in protected, so derived class can overloading it with a public one  
+
+friend class Dog; // this give the access to a private members
+friend const string & func(const Animal & a);
+
+//Derived class
+
+// Dog class, drived form Animal class
+class Dog : public Animal {
+	int walked;
+public:
+	Dog (string n) : Animal (n, "dog", "woof"), walked(0) {};
+	int walk() {return ++walked;}
+};
+
+//multiple inheritance??
+
+//virtual class
 
 ////////////////
 // NameSpaces //
@@ -494,6 +525,10 @@ condition == true ? "yes" : "no"
 //typeid operator ??
 
 //operators precedence
+
+///////////////
+// Templates //
+///////////////
 
 //////////////////////////
 // C++ Standard Library //
