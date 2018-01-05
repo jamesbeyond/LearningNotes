@@ -54,6 +54,7 @@ int *ip = ia; // in this we don't do ip = &ia, due to ia[] is from of pointer, a
 int ia[5] = {1,2,3,4,5}; // this is defined in C++11
 
 char s[] = {'s','t','r','i','n','g',0}; // string end with 0 
+char s[] = {“s” “t” “r” “i” “n” “g”}； // same as above
 char s[] = "string"; // same as above
 
 ///////////////

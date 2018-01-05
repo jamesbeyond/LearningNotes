@@ -9,6 +9,12 @@ mbed --version
 pip install mbed-cli --upgrade
 
 ##############
+### Detect ###
+##############
+
+mbed detect
+
+##############
 ### Import ###
 ##############
 
@@ -36,3 +42,12 @@ mbed export -m <target> -i <IDE/Toolchain>
 mbed export -m K64F -i uvision5
 
 
+############
+### Test ###
+############
+
+mbed test -m <target> -t <toolchain>
+
+mbed test -m <target> -t <toolchain> -n <name-of-test>
+
+mbed test --compile-list #list all available test case
