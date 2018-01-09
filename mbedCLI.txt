@@ -1,6 +1,6 @@
-################
-### mbed CLI ###
-################
+####################
+### Installation ###
+####################
 
 pip install mbed-cli
 
@@ -41,6 +41,11 @@ mbed compile -m K64F -t ARM
 mbed export -m <target> -i <IDE/Toolchain>
 mbed export -m K64F -i uvision5
 
+#####################
+### Configuration ###
+#####################
+
+
 
 ############
 ### Test ###
@@ -50,4 +55,10 @@ mbed test -m <target> -t <toolchain>
 
 mbed test -m <target> -t <toolchain> -n <name-of-test>
 
-mbed test --compile-list #list all available test case
+mbed test --compile-list #List all tests that can be built
+mbed test --compile  # only compile without test
+mbed test --run      # only run test
+
+mbed test --clean(-c) # clean the build directory before compile
+
+mbed test -m K64F -t ARM -l #list all available test case
